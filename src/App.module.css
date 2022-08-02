@@ -1,0 +1,37 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 25px;
+  justify-content: space-between;
+  background-image: url("../public/25501.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+}
+
+.p {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 25px;
+  text-transform: uppercase;
+}
+
+.searchBar {
+  margin-top: 10vh;
+  align-self: center;
+}
+
+.weatherContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: flex-end;
+}
+
+@media screen and (max-width: 480px) {
+  .weatherContainer {
+    grid-template-columns: 1fr;
+  }
+}

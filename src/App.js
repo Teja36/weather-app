@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import styles from "./App.module.css";
+import { SearchBar, WeatherCard, InfoCard, ForecastCard } from "./components";
 
 function App() {
+  const [cityName, setCityName] = useState("newyork");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={styles.container}>
+      <p className={styles.p}>Weather App</p>
+      <div className={styles.searchBar}>
+        <SearchBar
+          cityName={cityName}
+          handleSubmit={handleSubmit}
+          setCityName={setCityName}
+        />
+      </div>
+      <div className={styles.weatherContainer}>
+        <WeatherCard />
+        <InfoCard />
+      </div>
+
+      <ForecastCard />
     </div>
   );
 }
