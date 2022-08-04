@@ -33,5 +33,6 @@
 @media screen and (max-width: 480px) {
   .weatherContainer {
     grid-template-columns: 1fr;
+    height: 60vh;
   }
 }

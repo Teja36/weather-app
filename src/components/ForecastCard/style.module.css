@@ -2,6 +2,11 @@
   width: 100%;
 }
 
+.h4 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
 .forecastContainer {
   width: 100%;
   overflow-x: auto;

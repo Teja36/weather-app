@@ -3,6 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 5px;
 }
 
 .h1,
@@ -14,7 +15,30 @@
   font-weight: 2rem;
 }
 
+.tempContainer {
+  align-self: flex-start;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.img {
+  width: 150px;
+  height: auto;
+  grid-row: 1 / span 2;
+}
+
 .h2 {
   font-size: 4.5rem;
   font-weight: normal;
+  display: flex;
+  align-items: flex-end;
+}
+
+.p {
+  grid-column-start: 2;
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+  }
 }

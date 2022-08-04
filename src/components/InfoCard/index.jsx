@@ -1,27 +1,28 @@
 import React from "react";
 import styles from "./style.module.css";
 
-const InfoCard = () => {
+const InfoCard = ({ details }) => {
+  if (!details) return "loading...";
   return (
     <div className={styles.container}>
       <ul>
         <li>
-          <strong>6&deg;</strong>High
+          <strong>{details.high}&deg;c</strong>High
         </li>
         <li>
-          <strong>3.1mph</strong>Wind
+          <strong>{details.wind} kph</strong>Wind
         </li>
         <li>
-          <strong>6:40</strong>Sunrise
+          <strong>{details.sunrise}</strong>Sunrise
         </li>
         <li>
-          <strong>3&deg;</strong>Low
+          <strong>{details.low}&deg;c</strong>Low
         </li>
         <li>
-          <strong>70%</strong>Rain
+          <strong>{details.rain}%</strong>Rain
         </li>
         <li>
-          <strong>7:19</strong>Sunset
+          <strong>{details.sunset}</strong>Sunset
         </li>
       </ul>
     </div>
