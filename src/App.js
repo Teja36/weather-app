@@ -3,8 +3,19 @@ import styles from "./App.module.css";
 import { SearchBar, WeatherCard, InfoCard, ForecastCard } from "./components";
 
 function App() {
-  const [cityName, setCityName] = useState("hyderabad");
+  const [cityName, setCityName] = useState("");
   const [weatherDetails, setWeatherDetails] = useState({});
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        setCityName(`${position.coords.latitude},${position.coords.longitude}`);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }, []);
 
   useEffect(() => {
     if (!cityName) return;
@@ -12,7 +23,7 @@ function App() {
     const getWeatherForecast = async () => {
       try {
         const res = await fetch(
-          `http://api.weatherapi.com/v1/forecast.json?key=28d9969fec674aa8b18195045220308&q=${cityName}&days=1&aqi=no&alerts=no`
+          `https://api.weatherapi.com/v1/forecast.json?key=28d9969fec674aa8b18195045220308&q=${cityName}&days=1&aqi=no&alerts=no`
         );
 
         const data = await res.json();

@@ -36,6 +36,8 @@
 
 .p {
   grid-column-start: 2;
+  word-wrap: break-word;
+  max-width: 150px;
 }
 
 @media screen and (max-width: 480px) {
