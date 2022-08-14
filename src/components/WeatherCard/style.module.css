@@ -1,41 +1,35 @@
 .container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
+  display: grid;
+  grid-template:
+    "city city" min-content
+    "img temp" min-content / min-content min-content;
 }
 
-.h1,
-.p1 {
-  align-self: flex-start;
+.city {
+  grid-area: city;
+}
+
+.temp {
+  grid-area: temp;
+  align-self: center;
 }
 
 .h1 {
   font-weight: 2rem;
 }
 
-.tempContainer {
-  align-self: flex-start;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-}
-
 .img {
   width: 150px;
   height: auto;
-  grid-row: 1 / span 2;
+  grid-area: img;
 }
 
 .h2 {
   font-size: 4.5rem;
   font-weight: normal;
-  display: flex;
-  align-items: flex-end;
 }
 
 .p {
-  grid-column-start: 2;
   word-wrap: break-word;
   max-width: 150px;
 }
