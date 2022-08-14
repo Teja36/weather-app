@@ -27,7 +27,6 @@
 .weatherContainer {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  align-items: flex-end;
 }
 
 ::-webkit-scrollbar {
@@ -44,9 +43,29 @@
   border-radius: 10px;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 992px) {
   .weatherContainer {
     grid-template-columns: 1fr;
-    height: 60vh;
+    align-content: space-around;
+    justify-items: center;
+    height: 50vh;
+  }
+  @media screen and (max-height: 660px) {
+    .p {
+      display: none;
+    }
+
+    .searchBar {
+      margin-top: 5vh;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .searchBar {
+    margin-top: 5vh;
+  }
+  .p {
+    display: none;
   }
 }
