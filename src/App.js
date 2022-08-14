@@ -5,14 +5,16 @@ import { SearchBar, WeatherCard, InfoCard, ForecastCard } from "./components";
 function App() {
   const [cityName, setCityName] = useState("");
   const [weatherDetails, setWeatherDetails] = useState({});
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
       (position) => {
         setCityName(`${position.coords.latitude},${position.coords.longitude}`);
       },
-      (error) => {
-        console.log(error);
+      (err) => {
+        console.log(err);
+        setError(true);
       }
     );
   }, []);
@@ -111,12 +113,20 @@ function App() {
       <div className={styles.searchBar}>
         <SearchBar handleSubmit={handleSubmit} />
       </div>
-      <div className={styles.weatherContainer}>
-        <WeatherCard details={weatherDetails.weatherCard} />
-        <InfoCard details={weatherDetails.infoCard} />
-      </div>
+      {error && !cityName ? (
+        <div className={styles.errorMessage}>
+          <h2>Please enable location access.</h2>
+        </div>
+      ) : (
+        <>
+          <div className={styles.weatherContainer}>
+            <WeatherCard details={weatherDetails.weatherCard} />
+            <InfoCard details={weatherDetails.infoCard} />
+          </div>
 
-      <ForecastCard details={weatherDetails.forecastCard} />
+          <ForecastCard details={weatherDetails.forecastCard} />
+        </>
+      )}
     </div>
   );
 }
